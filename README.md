@@ -23,7 +23,7 @@ While you're in the setting screen you may wish to **Bind Keys** as well, and op
 Once your combos are loaded and your keys are bound, simply **Return** to the main menu and choose **Select Combo**. Each option on this screen is a dropdown, so simply filter your way to the combo of your choice and **Start**.
 
 ![combo selector](https://i.imgur.com/D4TyXtH.png)
-And with that you're ready to go, start up your game and place soupTrainer over it. If the always on top setting isn't working, check out [AlwaysOnTopper](https://github.com/ClusterM/AlwaysOnTopper) to force it. It adds an option to the left click icon menu of windows when run:
+And with that you're ready to go, start up your game and place soupTrainer over it. I recommend placing it directly over the game window, then alt-tabbing back into the game. If the always on top setting isn't working, check out [AlwaysOnTopper](https://github.com/ClusterM/AlwaysOnTopper) to force it. It adds an option to the left click icon menu of windows when run:
 
 ![alwaysontopper](https://i.imgur.com/Zg7KpCm.png)
 
