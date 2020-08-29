@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/arrow_base.gd" type="Script" id=2]
+
+[node name="arrow_base" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="arrow_image" type="Sprite" parent="."]
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )

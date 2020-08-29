@@ -1,0 +1,144 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Fundamental Brigade.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/backButtonsSettings.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/bindKeys.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/changeClick.gd" type="Script" id=4]
+[ext_resource path="res://Image/bg.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/openFolder.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/reloadCombos.gd" type="Script" id=7]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float scroll_speed = 0.02;
+void fragment() {
+	vec2 shifteduv = UV;
+	shifteduv .x += TIME * scroll_speed;
+	shifteduv .y += TIME * scroll_speed * 0.5625;
+	vec4 color = texture(TEXTURE, shifteduv);
+	COLOR = color;	
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/scroll_speed = 0.02
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="settingsScreen" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.294118, 0.294118, 0.294118, 1 )
+material = SubResource( 2 )
+margin_right = 2097.0
+margin_bottom = 1734.0
+rect_scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backButtonsSettings" type="LinkButton" parent="."]
+margin_left = 1100.0
+margin_top = 630.0
+margin_right = 1267.0
+margin_bottom = 713.0
+rect_pivot_offset = Vector2( 276.437, 119 )
+custom_fonts/font = SubResource( 3 )
+text = "Return"
+underline = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bindKeys" type="LinkButton" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 529.5
+margin_top = 104.0
+margin_right = 782.5
+margin_bottom = 187.0
+rect_pivot_offset = Vector2( 126.5, 83 )
+custom_fonts/font = SubResource( 3 )
+text = "Bind Keys"
+underline = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bindText" type="Label" parent="bindKeys"]
+margin_left = -442.0
+margin_top = 420.0
+margin_right = 693.0
+margin_bottom = 480.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="changeClick" type="LinkButton" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 402.519
+margin_top = 187.062
+margin_right = 898.519
+margin_bottom = 270.062
+rect_pivot_offset = Vector2( 126.5, 83 )
+custom_fonts/font = SubResource( 3 )
+text = "Disable Click Track"
+underline = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="openFolder" type="LinkButton" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 372.519
+margin_top = 269.062
+margin_right = 918.519
+margin_bottom = 352.062
+rect_pivot_offset = Vector2( 293.298, 55.0966 )
+custom_fonts/font = SubResource( 3 )
+text = "Open Combo Folder"
+underline = 2
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reloadCombos" type="LinkButton" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 427.653
+margin_top = 353.082
+margin_right = 859.653
+margin_bottom = 436.082
+rect_pivot_offset = Vector2( 293.298, 55.0966 )
+custom_fonts/font = SubResource( 3 )
+text = "Reload Combos"
+underline = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

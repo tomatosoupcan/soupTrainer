@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/selectGame.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/selectCharacter.gd" type="Script" id=2]
+[ext_resource path="res://Fundamental Brigade.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/backButtonsSettings.gd" type="Script" id=4]
+[ext_resource path="res://Image/bg.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/selectCombo.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/goButton.gd" type="Script" id=7]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float scroll_speed = 0.02;
+void fragment() {
+	vec2 shifteduv = UV;
+	shifteduv .x += TIME * scroll_speed;
+	shifteduv .y += TIME * scroll_speed * 0.5625;
+	vec4 color = texture(TEXTURE, shifteduv);
+	COLOR = color;	
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/scroll_speed = 0.02
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 80
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.8, 0.8, 0.8, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="settingsScreen" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.294118, 0.294118, 0.294118, 1 )
+material = SubResource( 2 )
+margin_right = 2097.0
+margin_bottom = 1734.0
+rect_scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backButton" type="LinkButton" parent="."]
+margin_left = 1100.0
+margin_top = 630.0
+margin_right = 1267.0
+margin_bottom = 713.0
+rect_pivot_offset = Vector2( 276.437, 119 )
+custom_fonts/font = SubResource( 3 )
+text = "Return"
+underline = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="goButton" type="LinkButton" parent="."]
+margin_left = 964.0
+margin_top = 630.0
+margin_right = 1086.0
+margin_bottom = 713.0
+rect_pivot_offset = Vector2( 276.437, 119 )
+custom_fonts/font = SubResource( 3 )
+text = "Start"
+underline = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="selectGame" type="MenuButton" parent="."]
+margin_left = 7.0
+margin_top = 214.0
+margin_right = 1272.0
+margin_bottom = 315.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 4 )
+text = "Game:"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="selectCharacter" type="MenuButton" parent="selectGame"]
+margin_top = 88.0
+margin_right = 1265.0
+margin_bottom = 189.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 4 )
+text = "Character:"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="selectCombo" type="MenuButton" parent="selectGame/selectCharacter"]
+margin_top = 88.0
+margin_right = 1265.0
+margin_bottom = 189.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 4 )
+text = "Combo:"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="divider" type="Panel" parent="."]
+margin_left = 1089.0
+margin_top = 637.666
+margin_right = 1094.0
+margin_bottom = 704.666
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
