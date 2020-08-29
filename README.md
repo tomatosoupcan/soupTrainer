@@ -9,7 +9,7 @@ The inspiration for this project comes from tatsunical's [DDR Combo video](https
  - Make the overlay transparent, such that it can be placed on top of a borderless windowed fighting game, akin to the style shown in the video
  - Add additional combo assistance such as a click track
 # Engine Choice
-Godot was chosen for this project as it's something I've been meaning to learn to use, and can easily reads joypad inputs.
+Godot was chosen for this project as it's something I've been meaning to learn to use, and can easily read joypad inputs.
 
 # Using this Software
 Grab the most recent release [here](https://github.com/tomatosoupcan/soupTrainer/releases).
